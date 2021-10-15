@@ -1,9 +1,9 @@
-var Translate = document.querySelector("#translate");
-var input = document.querySelector("#input");
+var btnTranslate = document.querySelector("#btn-translate");
+var txtInput = document.querySelector("#txt-input");
 var outputDiv = document.querySelector("#output");
 
-
 var serverURL = "https://api.funtranslations.com/translate/british.json"
+
 
 function getTranslationURL(input) {
     return serverURL + "?" + "text=" + input
@@ -11,12 +11,12 @@ function getTranslationURL(input) {
 
 function errorHandler(error) {
     console.log("error occured", error);
-    alert("something wrong with server please try after sometime")
+    alert("something wrong with server! try again after some time")
 }
 
 
 function clickHandler() {
-    var inputText = input.value; 
+    var inputText = txtInput.value; 
 
     
     fetch(getTranslationURL(inputText))
@@ -28,4 +28,4 @@ function clickHandler() {
         .catch(errorHandler)
 };
 
-Translate.addEventListener("click", clickHandler)
+btnTranslate.addEventListener("click", clickHandler)
